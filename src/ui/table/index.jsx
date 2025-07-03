@@ -1,14 +1,7 @@
-import React, { JSX } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-type TableCellValue = string | number | boolean | React.ReactNode | null | undefined
-
-interface CustomTableProps {
-  tableHeaders?: string[]
-  tableRows?: Array<Record<string, TableCellValue>>
-}
-
-const CustomTable = ({ tableHeaders, tableRows }: CustomTableProps): JSX.Element => {
+const CustomTable = ({ tableHeaders, tableRows }) => {
   return (
     <table className='w-full min-w-max table-auto'>
       <thead>
@@ -37,9 +30,7 @@ const CustomTable = ({ tableHeaders, tableRows }: CustomTableProps): JSX.Element
                         {String(info)}
                       </span>
                     )}
-                    {!isPrimitive && (
-                      info // Renderiza directamente componentes React
-                    )}
+                    {!isPrimitive && info}
                   </div>
                 </td>
               )
