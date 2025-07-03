@@ -63,7 +63,6 @@ const DropDownLayout = ({ className }) => {
       ]
     }
   }, [])
-  console.log(hedaerInfo?.boards)
   return (
     <section
       className={`relative flex flex-col gap-4 items-center justify-start w-full ${className}`}
