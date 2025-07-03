@@ -4,12 +4,15 @@ import CustomLayout from '@/shared/layouts/custom-layout'
 import Dashboard from '@/features/dashboard'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]'
+import { UserProvider } from '@/shared/context/UserContext'
 
 export default function Home ({ params }) {
   return (
-    <CustomLayout>
-      <Dashboard params={params} />
-    </CustomLayout>
+    <UserProvider params={params}>
+      <CustomLayout>
+        <Dashboard params={params} />
+      </CustomLayout>
+    </UserProvider>
   )
 }
 
