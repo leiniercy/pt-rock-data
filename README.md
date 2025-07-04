@@ -81,3 +81,10 @@ Características:
  . Sin punto y coma.
  . Comillas simples.
  . Tipado estricto por defecto
+
+
+## env
+NEXTAUTH_URL='http://localhost:3000'
+NEXTAUTH_SECRET='PASSWORD'
+NEXT_PUBLIC_SUPABASE_URL=<SUBSTITUTE_SUPABASE_URL>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<SUBSTITUTE_SUPABASE_ANON_KEY>
