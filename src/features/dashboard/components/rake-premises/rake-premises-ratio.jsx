@@ -5,7 +5,7 @@ const RakePremisesRatio = ({ number }) => {
   return (
     <section
       className={classNames(
-        'relative flex items-center justify-center px-6 py-2 rounded-lg',
+        'relative flex items-center justify-center w-20 h-8 rounded-lg',
         number < 20 ? 'bg-green' : 'bg-wine'
       )}
     >
