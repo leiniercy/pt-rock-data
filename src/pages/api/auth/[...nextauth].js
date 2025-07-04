@@ -1,3 +1,4 @@
+import { supabaseClient } from '@/shared/hooks/useSuppabase'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
@@ -11,19 +12,22 @@ export const authOptions = {
         password: { label: 'Contraseña', type: 'password' }
       },
       async authorize (credentials, req) {
-        const user = { id: '1', name: 'J Smith', email: 'admin@gmail.com' }
-        console.log(credentials.username, user.email)
-        // try {
-        if (credentials.username === user.email && credentials.password === '1234') {
-          return user
-        } else {
+        try {
+          const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email: credentials.username,
+            password: credentials.password
+          })
+          if (error) {
+            console.error('Error:', error.message)
+            // Mensaje amigable al usuario: "Credenciales incorrectas"
+          } else {
+            console.log('Sesión iniciada:', data.user)
+            return { id: data?.user?.id, name: data?.user?.email, email: data?.user?.email }
+          }
+        } catch (error) {
+          console.error('Error al iniciar sesión:', error.message)
           return null
         }
-
-        // } catch (error) {
-
-        // return null
-        // }
       }
     })
   ],
