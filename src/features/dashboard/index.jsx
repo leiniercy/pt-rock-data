@@ -3,6 +3,7 @@ import RakePremises from './components/rake-premises'
 import StadisticsGenerals from './components/stadistics-generals'
 import HistoricalRatiopurchase from './components/historical-ratio-purchase'
 import StockOperativeAndReal from './components/stock-operative-and-real'
+import StateBrand from './components/state-brands'
 
 const Dashboard = () => {
   const stadisticsGenerals = useMemo(() => {
@@ -41,6 +42,7 @@ const Dashboard = () => {
       <StockOperativeAndReal className='col-span-6' />
       <RakePremises className='col-span-6' />
       <HistoricalRatiopurchase className='col-span-6' />
+      <StateBrand className='col-span-6' />
     </section>
   )
 }
