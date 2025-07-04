@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import RakePremises from './components/rake-premises'
 import StadisticsGenerals from './components/stadistics-generals'
+import HistoricalRatiopurchase from './components/historical-ratio-purchase'
+import StockOperativeAndReal from './components/stock-operative-and-real'
 
 const Dashboard = () => {
   const stadisticsGenerals = useMemo(() => {
@@ -32,11 +34,13 @@ const Dashboard = () => {
     ]
   }, [])
   return (
-    <section className='relative grid grid-cols-12 gap-4 items-start justify-start w-full p-4'>
+    <section className='relative grid grid-cols-12 gap-4 items-start justify-start h-full w-full p-4 overflow-y-auto'>
       {stadisticsGenerals.map((item) => (
         <StadisticsGenerals key={item.id} className='col-span-4' {...item} />
       ))}
-      <RakePremises className='col-start-1 col-span-6' />
+      <StockOperativeAndReal className='col-span-6' />
+      <RakePremises className='col-span-6' />
+      <HistoricalRatiopurchase className='col-span-6' />
     </section>
   )
 }
